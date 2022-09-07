@@ -5,9 +5,11 @@ import Header from "./components/Layout/Header";
 import AddSmile from "./components/Smiles/AddSmile";
 import SmilesList from "./components/Smiles/SmilesList";
 import SmileForm from "./components/Smiles/Smile/SmileForm";
+import SmileDelete from "./components/Smiles/Smile/SmileDelete";
 
 function App() {
   const [addSmileModal, setAddSmileModal] = useState(false);
+  const [deleteConfirmModal, setDeleteConfirmModal] = useState(false);
 
   const showSmileFormHandler = () => {
     setAddSmileModal(true);
@@ -17,6 +19,13 @@ function App() {
     setAddSmileModal(false);
   };
 
+  const showDeleteConfirmHandler = () => {
+    setDeleteConfirmModal(true);
+  };
+  const closeDeleteConfirmHandler = () => {
+    setDeleteConfirmModal(false);
+  };
+
   return (
     <>
       {addSmileModal && (
@@ -24,10 +33,15 @@ function App() {
           <SmileForm onClose={closeSmileFormHandler} />
         </Modal>
       )}
+      {deleteConfirmModal && (
+        <Modal onClose={closeDeleteConfirmHandler}>
+          <SmileDelete onClose={closeDeleteConfirmHandler} />
+        </Modal>
+      )}
       <Header />
       <main>
         <AddSmile onclick={showSmileFormHandler} />
-        <SmilesList />
+        <SmilesList onDelete={showDeleteConfirmHandler} />
       </main>
     </>
   );

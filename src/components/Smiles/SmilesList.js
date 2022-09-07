@@ -28,6 +28,7 @@ const SmilesList = (props) => {
       name={item.name}
       description={item.description}
       emoji={item.emoji}
+      onDelete={props.onDelete}
     />
   ));
 
