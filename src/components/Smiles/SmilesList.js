@@ -12,6 +12,12 @@ const LIST_OF_SMILE = [
     description: `Whooooowww ça c'est un putain de smile !`,
     emoji: "😀",
   },
+  {
+    id: "C2",
+    name: "small smile",
+    description: `On pourrait faire mieux, mais bon...`,
+    emoji: "🙂",
+  },
 ];
 
 const SmilesList = (props) => {
@@ -27,7 +33,7 @@ const SmilesList = (props) => {
 
   return (
     <section>
-      <Card>
+      <Card className={classes.list}>
         <ul>{listOfSmile}</ul>
       </Card>
     </section>
