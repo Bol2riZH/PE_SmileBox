@@ -9,13 +9,11 @@ import SmileForm from "./components/Smiles/Smile/SmileForm";
 function App() {
   const [addSmileModal, setAddSmileModal] = useState(false);
 
-  const showSmileFormHandler = (props) => {
-    console.log("ouvert!");
+  const showSmileFormHandler = () => {
     setAddSmileModal(true);
   };
 
-  const closeSmileFormHandler = (props) => {
-    console.log("fermé!");
+  const closeSmileFormHandler = () => {
     setAddSmileModal(false);
   };
 
@@ -23,7 +21,7 @@ function App() {
     <>
       {addSmileModal && (
         <Modal onClose={closeSmileFormHandler}>
-          <SmileForm />
+          <SmileForm onClose={closeSmileFormHandler} />
         </Modal>
       )}
       <Header />

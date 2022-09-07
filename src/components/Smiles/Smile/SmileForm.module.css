@@ -35,3 +35,13 @@
   background-color: rgba(97, 218, 251, 0.1);
   box-shadow: 0 0 3px #61dafb;
 }
+
+.button {
+  background-color: indianred;
+  box-shadow: 0 1px 3px #ffabaf;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #b54848;
+}

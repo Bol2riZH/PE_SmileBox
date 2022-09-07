@@ -7,7 +7,7 @@ import Card from "./Card";
 import Button from "./Button";
 
 const Backdrop = (props) => {
-  return <div className={classes.backdrop}></div>;
+  return <div className={classes.backdrop} onClick={props.onClose}></div>;
 };
 
 const ModalOverlay = (props) => {
@@ -19,7 +19,7 @@ const portalElement = document.querySelector("#overlays");
 const Modal = (props) => {
   return (
     <>
-      {createPortal(<Backdrop />, portalElement)}
+      {createPortal(<Backdrop onClose={props.onClose} />, portalElement)}
       {createPortal(
         <ModalOverlay>{props.children}</ModalOverlay>,
         portalElement

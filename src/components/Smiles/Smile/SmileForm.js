@@ -21,6 +21,9 @@ const SmileForm = (props) => {
         <input type="text" placeholder="Pourri, à vomir, etc..." />
 
         <Button>Confirmer</Button>
+        <Button className={classes.button} onClick={props.onClose}>
+          Annuler
+        </Button>
       </section>
     </form>
   );
