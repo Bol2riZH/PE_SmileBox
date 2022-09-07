@@ -1,7 +1,12 @@
 .header {
     display: flex;
     justify-content: space-between;
-    padding: 2.5rem;
+    align-items: center;
+    padding: 2rem;
     background-color: #61dafb;
-    font-size: 1.8rem;
+}
+
+.header h1 {
+    font-size: 3rem;
+    color: white;
 }
