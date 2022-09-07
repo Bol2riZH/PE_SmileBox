@@ -1,0 +1,37 @@
+.form header {
+  background-color: #61dafb;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 1.6rem;
+}
+
+.form h2 {
+  font-size: 3rem;
+}
+
+.form section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 3rem;
+}
+
+.form label {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.form input {
+  border: 1px solid gray;
+  font-size: 1.8rem;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  outline: none;
+}
+
+.form input:focus {
+  border: 1px solid #61dafb;
+  background-color: rgba(97, 218, 251, 0.1);
+  box-shadow: 0 0 3px #61dafb;
+}

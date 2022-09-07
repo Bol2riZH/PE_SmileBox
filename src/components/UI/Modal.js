@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM, { createPortal } from "react-dom";
+import { createPortal } from "react-dom";
 
 import classes from "./Modal.module.css";
 
@@ -11,18 +11,7 @@ const Backdrop = (props) => {
 };
 
 const ModalOverlay = (props) => {
-  return (
-    <Card className={classes.modal}>
-      <header>
-        <h2>^^ Ajout de smile ^^</h2>
-      </header>
-      <form>
-        <p>Formulaire temp</p>
-        <input type="text" />
-      </form>
-      <Button>Confirmer</Button>
-    </Card>
-  );
+  return <Card className={classes.modal}>{props.children}</Card>;
 };
 
 const portalElement = document.querySelector("#overlays");
@@ -31,7 +20,10 @@ const Modal = (props) => {
   return (
     <>
       {createPortal(<Backdrop />, portalElement)}
-      {createPortal(<ModalOverlay />, portalElement)}
+      {createPortal(
+        <ModalOverlay>{props.children}</ModalOverlay>,
+        portalElement
+      )}
     </>
   );
 };

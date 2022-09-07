@@ -12,7 +12,7 @@ const SmileItem = (props) => {
         <p>{props.description}</p>
       </div>
       <div className={classes.delete}>
-        <Button className={classes.round}>Supprimer le smile... 😭</Button>
+        <Button className={classes.button}>Supprimer le smile... 😭</Button>
       </div>
     </li>
   );
