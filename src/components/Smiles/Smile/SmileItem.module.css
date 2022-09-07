@@ -7,9 +7,27 @@
   border-bottom: 2px solid rgb(85, 165, 230);
 }
 
+.item h2 {
+  font-weight: 800;
+}
+
+.item span {
+  font-size: 7rem;
+}
+
+.item p {
+  font-size: 1.8rem;
+  font-style: italic;
+}
+
+.smile {
+  margin-left: 1.5rem;
+}
+
 .delete {
   display: flex;
   flex-direction: column;
+  margin-right: 1.5rem;
 }
 
 .round {

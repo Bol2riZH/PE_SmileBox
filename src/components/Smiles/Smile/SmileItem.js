@@ -6,7 +6,7 @@ import Button from "../../UI/Button";
 const SmileItem = (props) => {
   return (
     <li className={classes.item}>
-      <div>
+      <div className={classes.smile}>
         <h2>{props.name}</h2>
         <span>{props.emoji}</span>
         <p>{props.description}</p>
