@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Modal from "./components/UI/Modal";
 import Header from "./components/Layout/Header";
@@ -7,14 +7,28 @@ import SmilesList from "./components/Smiles/SmilesList";
 import SmileForm from "./components/Smiles/Smile/SmileForm";
 
 function App() {
+  const [addSmileModal, setAddSmileModal] = useState(false);
+
+  const showSmileFormHandler = (props) => {
+    console.log("ouvert!");
+    setAddSmileModal(true);
+  };
+
+  const closeSmileFormHandler = (props) => {
+    console.log("fermé!");
+    setAddSmileModal(false);
+  };
+
   return (
     <>
-      <Modal>
-        <SmileForm />
-      </Modal>
+      {addSmileModal && (
+        <Modal onClose={closeSmileFormHandler}>
+          <SmileForm />
+        </Modal>
+      )}
       <Header />
-      <AddSmile />
       <main>
+        <AddSmile onclick={showSmileFormHandler} />
         <SmilesList />
       </main>
     </>
