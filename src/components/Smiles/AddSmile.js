@@ -5,7 +5,7 @@ import Button from "../UI/Button";
 
 const AddSmile = (props) => {
   return (
-    <Button className={classes.add} onClick={props.onclick}>
+    <Button className={classes["add-button"]} onClick={props.onclick}>
       Ajouter un 😁 !
     </Button>
   );

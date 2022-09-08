@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import classes from "./SmileItem.module.css";
-import Button from "../../UI/Button";
+import classes from './SmileItem.module.css';
+import Button from '../../UI/Button';
 
-const SmileItem = (props) => {
+const SmileItem = props => {
   return (
     <li className={classes.item}>
       <div className={classes.smile}>
         <h2>{props.name}</h2>
         <span>{props.emoji}</span>
-        <p>{props.description}</p>
+        <p>{props.opinion}</p>
       </div>
       <div className={classes.delete}>
         <Button className={classes.button} onClick={props.onDelete}>

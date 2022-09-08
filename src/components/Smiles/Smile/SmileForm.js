@@ -1,26 +1,58 @@
-import React from "react";
+import React, { useRef } from 'react';
 
-import classes from "./SmileForm.module.css";
+import classes from './SmileForm.module.css';
 
-import Button from "../../UI/Button";
+import Button from '../../UI/Button';
 
-const SmileForm = (props) => {
+const SmileForm = props => {
+  const emojiInputRef = useRef();
+  const nameInputRef = useRef();
+  const opinionInputRef = useRef();
+
+  const addNewSmileHandler = e => {
+    e.preventDefault();
+    const enteredEmoji = emojiInputRef.current.value;
+    const enteredName = nameInputRef.current.value;
+    const enteredOpinion = opinionInputRef.current.value;
+
+    props.onAddSmile(enteredEmoji, enteredName, enteredOpinion);
+  };
+
+  /*///////////////////////////////*/
+  /*TODO: MAKE AN INPUT COMPONENTS*/
+  /*//////////////////////////////*/
+
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={addNewSmileHandler}>
       <header>
         <h2>Ajout de smile</h2>
       </header>
       <section>
-        <label htmlFor="avis">Azy, mets ton emoji sourire :</label>
-        <input type="text" placeholder="😀 😁 🙂 😊 😉️ 😚 😵 ‍💫🤢 🤮 " />
+        <label htmlFor="emoji">Azy, mets ton emoji sourire :</label>
+        <input
+          id="emoji"
+          type="text"
+          placeholder="😀 😁 🙂 😊 😉️ 😚 😵 ‍💫🤢 🤮 "
+          ref={emojiInputRef}
+        />
 
         <label htmlFor="name">C'est quoi comme smile ?</label>
-        <input type="text" placeholder="Grand, petit, plein de dents ???" />
+        <input
+          id="name"
+          type="text"
+          placeholder="Grand, petit, plein de dents ???"
+          ref={nameInputRef}
+        />
 
-        <label htmlFor="avis">Tu penses qu'il y a mieux ?</label>
-        <input type="text" placeholder="Pourri, à vomir, etc..." />
+        <label htmlFor="opinion">Tu penses qu'il y a mieux ?</label>
+        <input
+          id="opinion"
+          type="text"
+          placeholder="Pourri, à vomir, etc..."
+          ref={opinionInputRef}
+        />
 
-        <Button>Confirmer</Button>
+        <Button type="submit">Confirmer</Button>
         <Button className={classes.button} onClick={props.onClose}>
           Annuler
         </Button>

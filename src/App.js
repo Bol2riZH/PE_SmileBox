@@ -1,22 +1,28 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Modal from "./components/UI/Modal";
-import Header from "./components/Layout/Header";
-import AddSmile from "./components/Smiles/AddSmile";
-import SmilesList from "./components/Smiles/SmilesList";
-import SmileForm from "./components/Smiles/Smile/SmileForm";
-import SmileDelete from "./components/Smiles/Smile/SmileDelete";
+import Modal from './components/UI/Modal';
+import Header from './components/Layout/Header';
+import AddSmile from './components/Smiles/AddSmile';
+import SmilesList from './components/Smiles/SmilesList';
+import SmileForm from './components/Smiles/Smile/SmileForm';
+import SmileDelete from './components/Smiles/Smile/SmileDelete';
 
 function App() {
-  const [addSmileModal, setAddSmileModal] = useState(false);
+  const [showAddSmileModal, setShowAddSmileModal] = useState(false);
   const [deleteConfirmModal, setDeleteConfirmModal] = useState(false);
+  const [smileList, setSmileList] = useState([]);
+
+  /*////////////////////////////////////////////////*/
+  /*TODO: CONSIDER REFACTORING THE OPEN/CLOSE MODAL*/
+  /* Implement a REDUCER */
+  /*////////////////////*/
 
   const showSmileFormHandler = () => {
-    setAddSmileModal(true);
+    setShowAddSmileModal(true);
   };
 
   const closeSmileFormHandler = () => {
-    setAddSmileModal(false);
+    setShowAddSmileModal(false);
   };
 
   const showDeleteConfirmHandler = () => {
@@ -26,11 +32,31 @@ function App() {
     setDeleteConfirmModal(false);
   };
 
+  const addNewSmileHandler = (smileEmoji, smileName, smileOpinion) => {
+    setSmileList(prevSmileList => {
+      return [
+        ...prevSmileList,
+        {
+          id: Math.random().toString(),
+          key: Math.random().toString(),
+          name: smileName,
+          opinion: smileOpinion,
+          emoji: smileEmoji,
+        },
+      ];
+    });
+    console.log(smileList);
+    setShowAddSmileModal(false);
+  };
+
   return (
     <>
-      {addSmileModal && (
+      {showAddSmileModal && (
         <Modal onClose={closeSmileFormHandler}>
-          <SmileForm onClose={closeSmileFormHandler} />
+          <SmileForm
+            onClose={closeSmileFormHandler}
+            onAddSmile={addNewSmileHandler}
+          />
         </Modal>
       )}
       {deleteConfirmModal && (
@@ -41,7 +67,7 @@ function App() {
       <Header />
       <main>
         <AddSmile onclick={showSmileFormHandler} />
-        <SmilesList onDelete={showDeleteConfirmHandler} />
+        <SmilesList onDelete={showDeleteConfirmHandler} onSmiles={smileList} />
       </main>
     </>
   );
