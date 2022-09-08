@@ -51,7 +51,6 @@ function App() {
   const deleteSmileHandler = id => {
     console.log(id);
     setSmileList(prevSmileList => {
-      // console.log(newListOfSmiles);
       return prevSmileList.filter(smile => smile.id !== id);
     });
     setDeleteConfirmModal(false);

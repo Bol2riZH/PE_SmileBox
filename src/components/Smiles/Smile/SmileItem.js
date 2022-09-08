@@ -5,7 +5,7 @@ import Button from '../../UI/Button';
 
 const SmileItem = props => {
   const deleteHandler = () => {
-    console.log(props.onDeleteConfirmation(props.id));
+    props.onDeleteConfirmation(props.id);
   };
 
   return (
