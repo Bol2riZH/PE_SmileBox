@@ -32,7 +32,7 @@ function App() {
     setDeleteConfirmModal(false);
   };
 
-  const addNewSmileHandler = (smileEmoji, smileName, smileOpinion) => {
+  const addNewSmileHandler = (smileEmoji, smileName, smileDescription) => {
     setSmileList(prevSmileList => {
       return [
         ...prevSmileList,
@@ -40,13 +40,21 @@ function App() {
           id: Math.random().toString(),
           key: Math.random().toString(),
           name: smileName,
-          opinion: smileOpinion,
+          description: smileDescription,
           emoji: smileEmoji,
         },
       ];
     });
-    console.log(smileList);
     setShowAddSmileModal(false);
+  };
+
+  const deleteSmileHandler = id => {
+    console.log(id);
+    setSmileList(prevSmileList => {
+      // console.log(newListOfSmiles);
+      return prevSmileList.filter(smile => smile.id !== id);
+    });
+    setDeleteConfirmModal(false);
   };
 
   return (
@@ -61,12 +69,15 @@ function App() {
       )}
       {deleteConfirmModal && (
         <Modal onClose={closeDeleteConfirmHandler}>
-          <SmileDelete onClose={closeDeleteConfirmHandler} />
+          <SmileDelete
+            onClose={closeDeleteConfirmHandler}
+            onDeleteSmile={deleteSmileHandler}
+          />
         </Modal>
       )}
       <Header />
       <main>
-        <AddSmile onclick={showSmileFormHandler} />
+        <AddSmile onAdd={showSmileFormHandler} />
         <SmilesList onDelete={showDeleteConfirmHandler} onSmiles={smileList} />
       </main>
     </>

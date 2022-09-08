@@ -32,11 +32,11 @@ const SmileForm = props => {
         <input
           id="emoji"
           type="text"
-          placeholder="😀 😁 🙂 😊 😉️ 😚 😵 ‍💫🤢 🤮 "
+          placeholder="😀 😁 🙂 😊 😉️ 😚 😵 ‍💫 🤢 🤮 "
           ref={emojiInputRef}
         />
 
-        <label htmlFor="name">C'est quoi comme smile ?</label>
+        <label htmlFor="name">C'est quoi le nom de ton smile ?</label>
         <input
           id="name"
           type="text"
@@ -44,9 +44,9 @@ const SmileForm = props => {
           ref={nameInputRef}
         />
 
-        <label htmlFor="opinion">Tu penses qu'il y a mieux ?</label>
+        <label htmlFor="description">Une petite description ? </label>
         <input
-          id="opinion"
+          id="description"
           type="text"
           placeholder="Pourri, à vomir, etc..."
           ref={opinionInputRef}

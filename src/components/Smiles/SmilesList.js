@@ -21,7 +21,7 @@ const LIST_OF_SMILE = [
 ];
 
 const SmilesList = props => {
-  // const listOfSmile = LIST_OF_SMILE.map((item) => (
+  // const listOfSmile = LIST_OF_SMILE.map(item => (
   //   <SmileItem
   //     id={item.id}
   //     key={item.id}
@@ -41,9 +41,9 @@ const SmilesList = props => {
               id={smile.id}
               key={smile.id}
               name={smile.name}
-              opinion={smile.opinion}
+              description={smile.description}
               emoji={smile.emoji}
-              onDelete={props.onDelete}
+              onDeleteConfirmation={props.onDelete}
             />
           ))}
         </ul>
